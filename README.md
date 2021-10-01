@@ -3,6 +3,9 @@
 
 This API is compatible with the Angular frontend of https://github.com/se-nonide/Help-desk
 
+![alt text](https://miro.medium.com/fit/c/262/262/1*yh90bW8jL4f8pOTZTvbzqw.png)
+
+
 #### Dependencies
   * https://github.com/gorilla/mux
   * go.mongodb.org/mongo-driver/mongo
@@ -12,7 +15,7 @@ This API is compatible with the Angular frontend of https://github.com/se-nonide
 go run main.go
 ```
 
-#### To compile the api to binary and run it
+#### To compile the API to binary and run it
 ```
 go build
 ./go-API-REST
