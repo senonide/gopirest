@@ -6,3 +6,14 @@ This API is compatible with the Angular frontend of https://github.com/se-nonide
 #### Dependencies
   * https://github.com/gorilla/mux
   * go.mongodb.org/mongo-driver/mongo
+
+#### To run the API
+```
+go run main.go
+```
+
+#### To compile the api to binary and run it
+```
+go build
+./go-API-REST
+```
