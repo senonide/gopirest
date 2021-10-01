@@ -1,7 +1,7 @@
 # go-API-REST
 ### A rest api made it in golang that connects to a mongodb database
 
-This API is compatible with the Angular frontend of https://github.com/se-nonide/Help-desk
+This API is compatible with the Angular frontend from https://github.com/se-nonide/Help-desk
 
 ![alt text](https://miro.medium.com/fit/c/262/262/1*yh90bW8jL4f8pOTZTvbzqw.png)
 
