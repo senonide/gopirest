@@ -1,2 +1,2 @@
 # go-API-REST
-A rest api with the crud methods made it in golang
+A rest api made it in golang that connects to a mongodb database
