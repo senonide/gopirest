@@ -51,6 +51,25 @@ func Read() (models.AllPosts, error) {
 	return posts, nil
 }
 
+func ReadOne(postID string) (models.Post, error) {
+
+	var post models.Post
+
+	oid, _ := primitive.ObjectIDFromHex(postID)
+
+	filter := bson.M{"_id": oid}
+
+	cur := collection.FindOne(ctx, filter)
+
+	err := cur.Decode(&post)
+
+	if err != nil {
+		return post, err
+	}
+
+	return post, nil
+}
+
 func Update(post models.Post, postID string) error {
 
 	var err error

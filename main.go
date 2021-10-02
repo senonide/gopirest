@@ -46,22 +46,17 @@ func getPosts(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(posts)
 }
 
-// Not perfect
 func getOnePost(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	postID := vars["id"]
 
-	posts, err := services.Read()
+	post, err := services.ReadOne(postID)
 	if err != nil {
 		return
 	}
 
-	for _, post := range posts {
-		if post.ID == postID {
-			w.Header().Set("Content-Type", "application/json")
-			json.NewEncoder(w).Encode(post)
-		}
-	}
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(post)
 }
 
 func updatePost(w http.ResponseWriter, r *http.Request) {

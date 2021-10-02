@@ -27,6 +27,17 @@ func Read() (models.AllPosts, error) {
 	return posts, nil
 }
 
+func ReadOne(postID string) (models.Post, error) {
+
+	post, err := database.ReadOne(postID)
+
+	if err != nil {
+		return post, err
+	}
+
+	return post, nil
+}
+
 func Update(post models.Post, postID string) error {
 
 	err := database.Update(post, postID)
