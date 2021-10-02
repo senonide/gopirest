@@ -1,3 +1,6 @@
+/*
+	This class is in charge of implementing the CRUD methods
+*/
 package services
 
 import (

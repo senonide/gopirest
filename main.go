@@ -1,3 +1,10 @@
+/*
+	This API has the objective of storing and modifying post in a database.
+	All CRUD methods are implemented.
+	The API works exclusively with json.
+	Author: Sergio Nonide
+*/
+
 package main
 
 import (
@@ -13,10 +20,27 @@ import (
 	"github.com/se-nonide/go-API-REST/services"
 )
 
+// In the main method are defined the paths covered by the API.
+func main() {
+	router := mux.NewRouter().StrictSlash(true)
+
+	router.HandleFunc("/api", indexRoute)
+	router.HandleFunc("/api/posts", createPost).Methods("POST")
+	router.HandleFunc("/api/posts", getPosts).Methods("GET")
+	router.HandleFunc("/api/posts/{id}", getOnePost).Methods("GET")
+	router.HandleFunc("/api/posts/{id}", deletePost).Methods("DELETE")
+	router.HandleFunc("/api/posts/{id}", updatePost).Methods("PUT")
+
+	fmt.Println("Listening on port 3000")
+	log.Fatal(http.ListenAndServe(":3000", router))
+}
+
+// This function covers the response to a GET request to the initial path
 func indexRoute(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Wecome to my GO API! Here you can make CRUD operations with posts!")
 }
 
+// This function covers the response to a POST request, it creates a new post in the database
 func createPost(w http.ResponseWriter, r *http.Request) {
 
 	var newPost models.Post
@@ -35,6 +59,7 @@ func createPost(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(newPost)
 }
 
+// This function covers the response to a GET request for all posts, it returns all posts from the database
 func getPosts(w http.ResponseWriter, r *http.Request) {
 
 	posts, err := services.Read()
@@ -46,6 +71,7 @@ func getPosts(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(posts)
 }
 
+// This function covers the response to a GET request for a specified post, it returns the post from the database
 func getOnePost(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	postID := vars["id"]
@@ -59,6 +85,7 @@ func getOnePost(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(post)
 }
 
+// This function covers the response to a PUT request, it updates a specified post in the database
 func updatePost(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	postID := vars["id"]
@@ -78,6 +105,7 @@ func updatePost(w http.ResponseWriter, r *http.Request) {
 
 }
 
+// This function covers the response to a DELETE request, it deletes a specified post in the database
 func deletePost(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	postID := vars["id"]
@@ -86,18 +114,4 @@ func deletePost(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Fprintf(w, "The post with ID %v has been deleted successfully", postID)
 
-}
-
-func main() {
-	router := mux.NewRouter().StrictSlash(true)
-
-	router.HandleFunc("/api", indexRoute)
-	router.HandleFunc("/api/posts", createPost).Methods("POST")
-	router.HandleFunc("/api/posts", getPosts).Methods("GET")
-	router.HandleFunc("/api/posts/{id}", getOnePost).Methods("GET")
-	router.HandleFunc("/api/posts/{id}", deletePost).Methods("DELETE")
-	router.HandleFunc("/api/posts/{id}", updatePost).Methods("PUT")
-
-	fmt.Println("Listening on port 3000")
-	log.Fatal(http.ListenAndServe(":3000", router))
 }

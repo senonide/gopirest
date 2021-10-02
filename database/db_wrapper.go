@@ -1,3 +1,6 @@
+/*
+	This class is in charge of interacting with the database, it applies the design pattern called fachade
+*/
 package database
 
 import (

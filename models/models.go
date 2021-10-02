@@ -1,6 +1,9 @@
+/*
+	In this class are defined all the models with which the application works
+*/
 package models
 
-// To export the struct out of module "models", the first letter must be capitalzed
+// To export the struct out of module "models" in go, the first letter must be a capital letter
 type Post struct {
 	ID      string `bson:"_id,omitempty" json:"ID,omitempty"`
 	Title   string `json:"Title"`

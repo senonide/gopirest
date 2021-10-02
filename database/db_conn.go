@@ -1,3 +1,6 @@
+/*
+	This class is in charge of connecting the application to the database in mongodb
+*/
 package database
 
 import (
