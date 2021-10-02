@@ -6,6 +6,8 @@ package database
 import (
 	"context"
 	"fmt"
+	"io/ioutil"
+	"log"
 	"time"
 
 	"go.mongodb.org/mongo-driver/mongo"
@@ -14,10 +16,22 @@ import (
 
 var (
 	usr      = "sergio"
-	pwd      = "BbJ7by8ERQunZ7n"
+	pwd      = LoadPwd("mongodb.key")
 	host     = "cluster0.qpvi4.mongodb.net"
 	database = "nodeAngular"
 )
+
+func LoadPwd(path string) string {
+
+	buffer, err := ioutil.ReadFile(path)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	pwd := string(buffer)
+
+	return pwd
+}
 
 func GetCollection(collection string) *mongo.Collection {
 
