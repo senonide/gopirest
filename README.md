@@ -10,12 +10,14 @@ This API is compatible with the Angular frontend from https://github.com/se-noni
   * https://github.com/gorilla/mux
   * go.mongodb.org/mongo-driver/mongo
 
-#### To run the API
+#### Run the API
+In order to run the API without problems, you must reconfigure the connection variables to the database in the file `database/db_conn.go`. Then you can execute:
+
 ```
 go run main.go
 ```
 
-#### To compile the API to binary and run it
+#### Compile the API to binary and run it
 ```
 go build
 ./go-API-REST
