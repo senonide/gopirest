@@ -18,5 +18,5 @@ go run main.go
 #### Compile the API to binary and run it
 ```
 go build
-./go-API-REST
+./gopirest
 ```
