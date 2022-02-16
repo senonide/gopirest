@@ -9,7 +9,20 @@
   * go.mongodb.org/mongo-driver/mongo
 
 #### Run the API
-In order to run the API without problems, you must have a config file with the connection variables to the database in the path `config/config.json`. Then you can execute:
+In order to run the API without problems, you must have a config file with the connection variables to the database in the path `config/config.json`. 
+The config.json file looks like this:
+```
+{
+    "port":<listening port of the api>,
+    "dbName":"<name of the database>",
+    "dbUser":"<mongodb user>",
+    "dbPw":"<mongodb password>",
+    "dbHost":"<mongodb cluster url>"
+}
+```
+
+
+Then you can execute:
 
 ```
 go run main.go
