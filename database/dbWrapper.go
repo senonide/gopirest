@@ -6,7 +6,8 @@ package database
 import (
 	"context"
 
-	"github.com/se-nonide/go-API-REST/models"
+	"gopirest/gopirest/models"
+
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
@@ -27,9 +28,9 @@ func Create(post models.Post) error {
 	return nil
 }
 
-func Read() (models.AllPosts, error) {
+func Read() ([]models.Post, error) {
 
-	var posts models.AllPosts
+	var posts []models.Post
 
 	filter := bson.D{}
 
@@ -54,11 +55,11 @@ func Read() (models.AllPosts, error) {
 	return posts, nil
 }
 
-func ReadOne(postID string) (models.Post, error) {
+func ReadOne(postId string) (models.Post, error) {
 
 	var post models.Post
 
-	oid, _ := primitive.ObjectIDFromHex(postID)
+	oid, _ := primitive.ObjectIDFromHex(postId)
 
 	filter := bson.M{"_id": oid}
 
@@ -73,11 +74,11 @@ func ReadOne(postID string) (models.Post, error) {
 	return post, nil
 }
 
-func Update(post models.Post, postID string) error {
+func Update(post models.Post, postId string) error {
 
 	var err error
 
-	oid, _ := primitive.ObjectIDFromHex(postID)
+	oid, _ := primitive.ObjectIDFromHex(postId)
 
 	filter := bson.M{"_id": oid}
 
@@ -97,12 +98,12 @@ func Update(post models.Post, postID string) error {
 	return nil
 }
 
-func Delete(postID string) error {
+func Delete(postId string) error {
 
 	var err error
 	var oid primitive.ObjectID
 
-	oid, err = primitive.ObjectIDFromHex(postID)
+	oid, err = primitive.ObjectIDFromHex(postId)
 
 	if err != nil {
 		return err
