@@ -1,4 +1,4 @@
-# go-API-REST
+# GO aPI REST
 ### A rest api made it in golang that connects to a mongodb database
 
 ![alt text](https://miro.medium.com/fit/c/262/262/1*yh90bW8jL4f8pOTZTvbzqw.png)
