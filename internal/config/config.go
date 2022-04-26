@@ -14,7 +14,7 @@ type Config struct {
 	DbHost string `json:"dbHost"`
 }
 
-const ConfigFilePath = "config/config.json"
+const ConfigFilePath = "internal/config/config.json"
 
 func ReadConfig() (*Config, error) {
 

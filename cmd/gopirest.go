@@ -1,8 +1,8 @@
 package main
 
 import (
-	"gopirest/gopirest/config"
-	"gopirest/gopirest/handlers"
+	"gopirest/gopirest/internal/config"
+	"gopirest/gopirest/internal/handlers"
 	"log"
 	"strconv"
 
@@ -13,8 +13,8 @@ func main() {
 
 	postHandler := handlers.NewPostHandler()
 
-	// For release uncomment the next line
-	//gin.SetMode(gin.ReleaseMode)
+	gin.SetMode(gin.ReleaseMode)
+
 	router := gin.Default()
 	router.GET("/posts", postHandler.GetPosts)
 	router.GET("/posts/:id", postHandler.GetPostById)
@@ -30,5 +30,6 @@ func main() {
 
 	var url string = "localhost:" + strconv.Itoa(config.Port)
 
+	log.Printf("Listening on port: %d", config.Port)
 	router.Run(url)
 }

@@ -9,7 +9,7 @@
   * go.mongodb.org/mongo-driver/mongo
 
 #### Run the API
-In order to run the API without problems, you must have a config file with the connection variables to the database in the path `config/config.json`. 
+In order to run the API without problems, you must have a config file with the connection variables to the database in the path `internal/config/config.json`. 
 The config.json file looks like this:
 ```
 {
@@ -25,11 +25,11 @@ The config.json file looks like this:
 Then you can execute:
 
 ```
-go run main.go
+go run cmd/gopirest.go
 ```
 
 #### Compile the API to binary and run it
 ```
-go build
+go build cmd/gopirest.go
 ./gopirest
 ```

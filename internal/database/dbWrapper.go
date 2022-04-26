@@ -6,7 +6,7 @@ package database
 import (
 	"context"
 
-	"gopirest/gopirest/models"
+	"gopirest/gopirest/internal/models"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"

@@ -1,0 +1,7 @@
+{
+    "port":8080,
+    "dbName":"gopirest",
+    "dbUser":"sergio",
+    "dbPw":"FFnaFRWrARmvtcXO",
+    "dbHost":"cluster0.qpvi4.mongodb.net"
+}

@@ -8,7 +8,7 @@ package database
 import (
 	"context"
 	"fmt"
-	"gopirest/gopirest/config"
+	"gopirest/gopirest/internal/config"
 	"log"
 	"time"
 
@@ -32,8 +32,8 @@ func GetCollection(collection string) *mongo.Collection {
 		log.Fatal(err.Error())
 	}
 
-	ctx, ctxcf := context.WithTimeout(context.Background(), 10*time.Second)
-	fmt.Printf("ctxcf: %v\n", ctxcf)
+	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
+
 	err = client.Connect(ctx)
 
 	if err != nil {

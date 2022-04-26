@@ -4,8 +4,8 @@
 package services
 
 import (
-	"gopirest/gopirest/database"
-	"gopirest/gopirest/models"
+	"gopirest/gopirest/internal/database"
+	"gopirest/gopirest/internal/models"
 )
 
 type PostService struct{}

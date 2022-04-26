@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"gopirest/gopirest/models"
-	"gopirest/gopirest/services"
+	"gopirest/gopirest/internal/models"
+	"gopirest/gopirest/internal/services"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
